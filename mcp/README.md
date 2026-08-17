@@ -1,45 +1,43 @@
 # ScrubMyText Remote MCP
 
-Remote server:
+Connect a Streamable HTTP MCP client to:
 
 ```text
 https://api.scrubmytext.com/mcp
 ```
 
-Official registry name:
+Official registry name: `com.scrubmytext/tools`
 
-```text
-com.scrubmytext/tools
-```
+The server exposes **22 deterministic operations** across text integrity, rewriting, action identity and locking, temporary webhook inboxes, and human approval.
 
-The server exposes **20 operations** across:
-- ScrubMyText text integrity and rewriting
-- ReworkMyText (`rework_text`)
-- LockMyAction
-- CatchMySignal
-- ApproveMyAction
-
-Free text operations do not require a customer key. Paid tools require:
+Tool discovery and the public free allowance do not require a customer key. Subscription tools require this secret connection header:
 
 ```text
 Authorization: Bearer smt_live_...
 ```
 
-Example MCP tool call for ReworkMyText:
+A common client configuration looks like this; use your client's secret or environment-variable syntax instead of committing a key:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "tools/call",
-  "params": {
-    "name": "rework_text",
-    "arguments": {
-      "text": "In order to finish, the team utilized several tools.",
-      "mode": "deep"
+  "mcpServers": {
+    "scrubmytext": {
+      "url": "https://api.scrubmytext.com/mcp"
     }
   }
 }
 ```
 
-Consult your MCP client's documentation for adding a remote Streamable HTTP server and secret headers.
+## Recommended action-safety sequence
+
+1. Call `fingerprint_action` to confirm equivalent attempts derive one identity. This is free and does not reserve anything.
+2. Call `lock_action_intent` with the same action, scope, and identity-defining arguments.
+3. Execute the external action only when `safe_to_execute` is exactly `true`.
+4. Call `complete_action` with the returned `key` and `lock_id` after confirmed success.
+5. If the external result is unknown, call `mark_action_uncertain` and reconcile independently before retrying.
+
+LockMyAction coordinates retries; it does not authorize the action or prove that an external side effect occurred.
+
+- Five-minute quickstart: https://scrubmytext.com/agent-action-safety-quickstart/
+- All agent quickstarts: https://scrubmytext.com/agent-quickstarts/
+- Pricing and seven-day Starter trial: https://scrubmytext.com/pricing/
