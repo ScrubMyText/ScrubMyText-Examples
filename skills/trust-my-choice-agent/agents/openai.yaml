@@ -1,0 +1,16 @@
+interface:
+  display_name: "TrustMyChoice Agent"
+  short_description: "Check service evidence and report outcomes"
+  default_prompt: "Use $trust-my-choice-agent to evaluate a service before use and record a privacy-safe outcome afterward."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "scrubmytext"
+      description: "ScrubMyText MCP server with TrustMyChoice quality tools"
+      transport: "streamable_http"
+      url: "https://api.scrubmytext.com/mcp"
+
+policy:
+  allow_implicit_invocation: true
+
