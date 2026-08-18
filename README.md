@@ -1,13 +1,13 @@
 # ScrubMyText API & MCP Examples
 
-Copy/paste examples for deterministic work AI agents should not improvise: cleaning untrusted text, validating outputs, preventing duplicate actions, waiting for webhooks, and requiring human approval.
+Copy/paste examples for deterministic work AI agents should not improvise: cleaning untrusted text, validating outputs, preventing duplicate actions, waiting for webhooks, requiring human approval, and selecting services with contextual quality evidence.
 
 - API: `https://api.scrubmytext.com`
 - Remote MCP: `https://api.scrubmytext.com/mcp`
 - Agent quickstarts: https://scrubmytext.com/agent-quickstarts/
 - Pricing and 7-day Starter trial: https://scrubmytext.com/pricing/
 
-The remote MCP server exposes **22 deterministic operations**: 10 text tools and 12 agent-infrastructure operations.
+The remote MCP server exposes **49 deterministic REST/MCP operations** spanning text integrity, agent controls, and contextual service-quality evidence.
 
 ## Fastest first success: stable action identity
 
@@ -47,6 +47,14 @@ The official MCP Registry name is `com.scrubmytext/tools`. Tool discovery and fr
 
 See [the MCP examples and recommended action-safety sequence](mcp/README.md).
 
+## TrustMyChoice evidence loop
+
+Install the portable agent skill from [`skills/trust-my-choice-agent`](skills/trust-my-choice-agent/) or use the [zero-dependency JavaScript observer](https://scrubmytext.com/sdk/trustmychoice-observer.mjs). Both workflows check evidence for an exact service version and task before use, then submit only structured success, reliability, latency, and optional price metrics afterward. They do not send prompts, service inputs or outputs, credentials, customer content, or exception text.
+
+- [TrustMyChoice onboarding](https://scrubmytext.com/trust-my-choice/get-started/)
+- [Public evidence directory](https://scrubmytext.com/trust-my-choice/)
+- [REST/MCP quickstart](https://scrubmytext.com/agent-quickstarts/trust-my-choice/)
+
 ## Paid examples
 
 Start the card-required seven-day Starter trial at https://scrubmytext.com/pricing/. Unless canceled before the trial ends, Starter renews at $15/month; there are no automatic overages.
@@ -64,5 +72,6 @@ Examples are provided for:
 - CatchMySignal temporary webhooks
 - ApproveMyAction human approval
 - Remote MCP configuration
+- TrustMyChoice service selection and structured outcome reporting
 
 Never commit a real `smt_live_...` API key, webhook URL, approval URL, or secret-bearing payload.
