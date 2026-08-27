@@ -8,9 +8,9 @@ https://api.scrubmytext.com/mcp
 
 Official registry name: `com.scrubmytext/tools`
 
-The server exposes **22 deterministic operations** across text integrity, rewriting, action identity and locking, temporary webhook inboxes, and human approval.
+The server exposes **49 deterministic tools**: 10 text-integrity operations plus 39 agent-control and contextual-evidence operations. The control layer covers stable action identity, idempotency, event capture, human authority, budgets, leases, receipts, deadlines, escalation, policy and context state, and task-specific service-quality evidence.
 
-Tool discovery and the public free allowance do not require a customer key. Subscription tools require this secret connection header:
+Tool discovery and the public text allowance do not require a customer key. No-card Founding Access unlocks all 49 tools for 30 days or 1,000 total calls, whichever comes first. Founding Access and subscription tools use this secret connection header:
 
 ```text
 Authorization: Bearer smt_live_...
@@ -40,4 +40,8 @@ LockMyAction coordinates retries; it does not authorize the action or prove that
 
 - Five-minute quickstart: https://scrubmytext.com/agent-action-safety-quickstart/
 - All agent quickstarts: https://scrubmytext.com/agent-quickstarts/
-- Pricing and seven-day Starter trial: https://scrubmytext.com/pricing/
+- Content-safety workflow: https://scrubmytext.com/agent-quickstarts/text-safety/
+- Human-approval workflow: https://scrubmytext.com/agent-quickstarts/approve-my-action/
+- Asynchronous webhook workflow: https://scrubmytext.com/agent-quickstarts/catch-my-signal/
+- Contextual quality evidence: https://scrubmytext.com/agent-quickstarts/trust-my-choice/
+- No-card Founding Access and paid plans: https://scrubmytext.com/pricing/
