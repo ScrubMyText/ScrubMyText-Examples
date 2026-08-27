@@ -5,7 +5,7 @@ Copy/paste examples for deterministic work AI agents should not improvise: clean
 - API: `https://api.scrubmytext.com`
 - Remote MCP: `https://api.scrubmytext.com/mcp`
 - Agent quickstarts: https://scrubmytext.com/agent-quickstarts/
-- Pricing and 7-day Starter trial: https://scrubmytext.com/pricing/
+- No-card Founding Access and paid plans: https://scrubmytext.com/pricing/
 
 The remote MCP server exposes **49 deterministic REST/MCP operations** spanning text integrity, agent controls, and contextual service-quality evidence.
 
@@ -55,9 +55,13 @@ Install the portable agent skill from [`skills/trust-my-choice-agent`](skills/tr
 - [Public evidence directory](https://scrubmytext.com/trust-my-choice/)
 - [REST/MCP quickstart](https://scrubmytext.com/agent-quickstarts/trust-my-choice/)
 
-## Paid examples
+## Run the complete examples without a card
 
-Start the card-required seven-day Starter trial at https://scrubmytext.com/pricing/. Unless canceled before the trial ends, Starter renews at $15/month; there are no automatic overages.
+Founding Access unlocks all 49 tools for 30 days or 1,000 total calls, whichever comes first. The allowance has a hard stop and no automatic overage charge. Start at https://scrubmytext.com/pricing/ and keep the issued key in an environment variable instead of source code.
+
+## Continue on a paid plan
+
+After Founding Access, the card-required seven-day Starter trial renews at $15/month unless canceled before the trial ends. There are no automatic overages.
 
 Store the resulting API key in an environment variable instead of source code:
 
